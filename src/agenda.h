@@ -6,6 +6,8 @@
  *  <user@host>
  ****************************************************************************/
 #include <stdio.h>
+#include <stdlib.h>
+#include <gtk/gtk.h>
 
 #ifndef __AGENDA_H__
 #define __AGENDA_H__ 1
@@ -23,5 +25,10 @@ typedef struct DADOS
 #endif /*__agenda_dados__*/
 
 #define ARQ_DADOS "dados.csv"
+
+typedef struct Agenda
+	{
+	GtkWindow *Janela;
+	} AGENDA;
 
 #endif /*__AGENDA_H__*/
