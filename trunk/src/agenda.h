@@ -29,6 +29,13 @@ typedef struct DADOS
 typedef struct Agenda
 	{
 	GtkWindow *Janela;
+	GtkToolbar *BarraMenu;
+	GtkToolButton *Botoes[4];
+	GtkStatusbar *BarraStatus;
+	guint statusbar;
 	} AGENDA;
+
+#define false 0
+#define true 1
 
 #endif /*__AGENDA_H__*/
