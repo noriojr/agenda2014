@@ -31,6 +31,9 @@ int main (int argc, char **argv)
 
 		agenda->Botoes[3] = gtk_tool_button_new_from_stock(GTK_STOCK_CANCEL);
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[3]),"Cancelar","Cancelar");
+		agenda->Botoes[4] = gtk_tool_button_new_from_stock(GTK_STOCK_REMOVE);
+		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[4]),"Excluir","Excluir");
+			
 		agenda->EPesquisa = gtk_entry_new();
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->EPesquisa),"Entre com um nome","Entre com um nome");
 
