@@ -32,6 +32,7 @@ typedef struct Agenda
 	GtkToolbar *BarraMenu;
 	GtkToolButton *Botoes[4];
 	GtkStatusbar *BarraStatus;
+	GtkEntry *EPesquisa;
 	guint statusbar;
 	} AGENDA;
 
