@@ -30,7 +30,7 @@ typedef struct Agenda
 	{
 	GtkWindow *Janela;
 	GtkToolbar *BarraMenu;
-	GtkToolButton *Botoes[4];
+	GtkToolButton *Botoes[6];
 	GtkStatusbar *BarraStatus;
 	GtkEntry *EPesquisa;
 	guint statusbar;
