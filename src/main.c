@@ -21,14 +21,14 @@ int main (int argc, char **argv)
 		gtk_init (&argc, &argv);
 		//Instanciando a Janela Principal
 		agenda->Janela = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-		gtk_widget_set_size_request (GTK_WIDGET(agenda->Janela),400,300);
+		gtk_widget_set_size_request (GTK_WIDGET(agenda->Janela),600,300);
 		gtk_window_set_title (agenda->Janela, "Agenda 2014 - PCI");
 		Vbox = gtk_vbox_new (false,0);
 		agenda->BarraMenu = gtk_toolbar_new ();
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraMenu),false,false,0);
 		agenda->Botoes[0] = gtk_tool_button_new_from_stock(GTK_STOCK_NEW);
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[0]),"Novo Registro","Novo Registro");
-
+		
 		agenda->Botoes[2] = gtk_tool_button_new_from_stock(GTK_STOCK_SAVE);
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[2]),"Salvar Registro","Salvar Registro");
 
@@ -39,7 +39,9 @@ int main (int argc, char **argv)
 			
 		agenda->EPesquisa = gtk_entry_new();
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->EPesquisa),"Entre com um nome","Entre com um nome");
-
+		agenda->Botoes[5] = gtk_tool_button_new_from_stock(GTK_STOCK_FIND);
+			
+		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[5]),"Pesquisar","Pesquisar");
 			
 		agenda->BarraStatus = gtk_statusbar_new ();
 		agenda->statusbar = gtk_statusbar_get_context_id(agenda->BarraStatus, "Agenda Eletrônica");
