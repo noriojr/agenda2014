@@ -28,21 +28,26 @@ int main (int argc, char **argv)
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraMenu),false,false,0);
 		agenda->Botoes[0] = gtk_tool_button_new_from_stock(GTK_STOCK_NEW);
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[0]),"Novo Registro","Novo Registro");
-		
+
+		agenda->Botoes[1] = gtk_tool_button_new_from_stock(GTK_STOCK_EDIT);
+		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[1]),"Editar","Editar");
+
 		agenda->Botoes[2] = gtk_tool_button_new_from_stock(GTK_STOCK_SAVE);
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[2]),"Salvar Registro","Salvar Registro");
 
 		agenda->Botoes[3] = gtk_tool_button_new_from_stock(GTK_STOCK_CANCEL);
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[3]),"Cancelar","Cancelar");
+
 		agenda->Botoes[4] = gtk_tool_button_new_from_stock(GTK_STOCK_REMOVE);
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[4]),"Excluir","Excluir");
-			
+
+		agenda->Botoes[5] = gtk_tool_button_new_from_stock(GTK_STOCK_FIND);
+		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[5]),"Pesquisar","Pesquisar");
+
 		agenda->EPesquisa = gtk_entry_new();
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->EPesquisa),"Entre com um nome","Entre com um nome");
-		agenda->Botoes[5] = gtk_tool_button_new_from_stock(GTK_STOCK_FIND);
-			
-		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[5]),"Pesquisar","Pesquisar");
-			
+
+
 		agenda->BarraStatus = gtk_statusbar_new ();
 		agenda->statusbar = gtk_statusbar_get_context_id(agenda->BarraStatus, "Agenda Eletrônica");
 		agenda->statusbar = gtk_statusbar_push(agenda->BarraStatus, agenda->statusbar, "Agenda Eletrônica - PCI 2014");
