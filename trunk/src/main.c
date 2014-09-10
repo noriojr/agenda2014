@@ -41,12 +41,11 @@ int main (int argc, char **argv)
 		agenda->Botoes[4] = gtk_tool_button_new_from_stock(GTK_STOCK_REMOVE);
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[4]),"Excluir","Excluir");
 
-		agenda->Botoes[5] = gtk_tool_button_new_from_stock(GTK_STOCK_FIND);
-		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[5]),"Pesquisar","Pesquisar");
-
 		agenda->EPesquisa = gtk_entry_new();
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->EPesquisa),"Entre com um nome","Entre com um nome");
 
+		agenda->Botoes[5] = gtk_tool_button_new_from_stock(GTK_STOCK_FIND);
+		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[5]),"Pesquisar","Pesquisar");
 
 		agenda->BarraStatus = gtk_statusbar_new ();
 		agenda->statusbar = gtk_statusbar_get_context_id(agenda->BarraStatus, "Agenda Eletrônica");
