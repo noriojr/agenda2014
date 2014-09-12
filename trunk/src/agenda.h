@@ -29,10 +29,11 @@ typedef struct DADOS
 typedef struct Agenda
 	{
 	GtkWindow *Janela;
-	GtkToolbar *BarraMenu;
-	GtkToolButton *Botoes[6];
+	GtkToolbar *BarraMenu, *BarraNav;
+	GtkToolButton *Botoes[6], *BotoesNav[4];
 	GtkStatusbar *BarraStatus;
-	GtkEntry *EPesquisa;
+	GtkEntry *EPesquisa, *ECodigo, *ENome, *EDDD, *ETelefone, *ENav;
+	GtkTextView *TVObs;
 	GtkLabel *Label;
 	GtkButton *Pesq;
 	guint statusbar;
