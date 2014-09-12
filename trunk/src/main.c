@@ -15,7 +15,7 @@ int main (int argc, char **argv)
 	GtkLabel *LTexto;
 
 	
-	//Alocando memória para montar o programa
+	//Alocando memória para montar o programa
 	agenda = (AGENDA *) malloc(sizeof(AGENDA));
 	if (agenda)
 		{
@@ -57,7 +57,7 @@ int main (int argc, char **argv)
 		/*Begin*/
 		//Primeira linha Inicio
 		Hbox = gtk_hbox_new (false,0);
-		LTexto = gtk_label_new_with_mnemonic ("Código: ");
+		LTexto = gtk_label_new_with_mnemonic ("Código: ");
 		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
 		agenda->ECodigo = gtk_entry_new ();
 		gtk_widget_set_size_request (GTK_WIDGET(agenda->ECodigo),100,-1);
@@ -65,23 +65,26 @@ int main (int argc, char **argv)
 		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(agenda->ECodigo),false,false,0);
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
 		//Primeira Linha Final
-		//Segunda Linha Início
+		//Segunda Linha Início
 
 		//Segunda Linha Final
-		//Terceira Linha Início
+		//Terceira Linha Início
 
 		//Terceira Linha Final
-		//Quarta Linha Início
+		//Quarta Linha Início
 
 		//Quarta Linha Final
-		//ToolBar Navegação Início
+		//ToolBar Navegação Início
 		agenda->BarraNav = gtk_toolbar_new ();
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
-		//ToolBar Navegação Final
+		
+		agenda->BotoesNav[2] = gtk_tool_button_new_from_stock(GTK_STOCK_GO_DOWN);
+		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BotoesNav [2]),"Proximo","Proximo");
+		//ToolBar Navegação Final
 		/*End*/
 		agenda->BarraStatus = gtk_statusbar_new ();
-		agenda->statusbar = gtk_statusbar_get_context_id(agenda->BarraStatus, "Agenda Eletrônica");
-		agenda->statusbar = gtk_statusbar_push(agenda->BarraStatus, agenda->statusbar, "Agenda Eletrônica - PCI 2014");
+		agenda->statusbar = gtk_statusbar_get_context_id(agenda->BarraStatus, "Agenda Eletrônica");
+		agenda->statusbar = gtk_statusbar_push(agenda->BarraStatus, agenda->statusbar, "Agenda Eletrônica - PCI 2014");
 		gtk_box_pack_end (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraStatus),false,false,0);
 		//Conectando o sinal de Fechar na janela
 		g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (gtk_main_quit), agenda);
