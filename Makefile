@@ -23,3 +23,4 @@ dist:
 	cp -rf docs src img Makefile PCI-Agenda-2014.anjuta $(prg)-$(version)
 	tar -cvf $(prg)-$(version).tar.gz -z $(prg)-$(version) 
 	rm -rf $(prg)-$(version) 
+	
