@@ -69,7 +69,14 @@ int main (int argc, char **argv)
 
 		//Segunda Linha Final
 		//Terceira Linha Início
-
+		Hbox = gtk_hbox_new (false,0);
+		LTexto = gtk_label_new_with_mnemonic ("DDD: ");
+		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
+		agenda->EDDD= gtk_entry_new ();
+		gtk_widget_set_size_request (GTK_WIDGET(agenda->EDDD),32,-1);
+		gtk_entry_set_editable (agenda->EDDD,false);
+		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(agenda->EDDD),false,false,0);
+		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
 		//Terceira Linha Final
 		//Quarta Linha Início
 
@@ -77,7 +84,6 @@ int main (int argc, char **argv)
 		//ToolBar Navegação Início
 		agenda->BarraNav = gtk_toolbar_new ();
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
-		
 		agenda->BotoesNav[2] = gtk_tool_button_new_from_stock(GTK_STOCK_GO_DOWN);
 		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BotoesNav [2]),"Proximo","Proximo");
 		//ToolBar Navegação Final
@@ -87,7 +93,7 @@ int main (int argc, char **argv)
 		agenda->statusbar = gtk_statusbar_push(agenda->BarraStatus, agenda->statusbar, "Agenda Eletrônica - PCI 2014");
 		gtk_box_pack_end (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraStatus),false,false,0);
 		//Conectando o sinal de Fechar na janela
-		g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (gtk_main_quit), agenda);
+	    g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (gtk_main_quit), agenda);
 		//Mostrando a janela e seu Objetos
 		gtk_container_add (GTK_CONTAINER(agenda->Janela),GTK_WIDGET(Vbox));
 		gtk_widget_show_all (GTK_WIDGET(agenda->Janela));
