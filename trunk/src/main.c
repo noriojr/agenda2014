@@ -14,7 +14,7 @@ int main (int argc, char **argv)
 	GtkHBox *Hbox;
 	GtkLabel *LTexto;
 
-	
+
 	//Alocando memória para montar o programa
 	agenda = (AGENDA *) malloc(sizeof(AGENDA));
 	if (agenda)
@@ -22,8 +22,8 @@ int main (int argc, char **argv)
 		//Iniciando GTK+
 		gtk_init (&argc, &argv);
 		//Instanciando a Janela Principal
-		
-		
+
+
 		agenda->Janela = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 		gtk_widget_set_size_request (GTK_WIDGET(agenda->Janela),600,300);
 		gtk_window_set_title (agenda->Janela, "Agenda 2014 - PCI");
@@ -47,8 +47,8 @@ int main (int argc, char **argv)
 
 		agenda->Label = gtk_label_new_with_mnemonic("Pesquisar");
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Label),"Cancelar","Cancelar");
-			
-		agenda->EPesquisa = gtk_entry_new();			
+
+		agenda->EPesquisa = gtk_entry_new();
 		gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->EPesquisa),"Entre com um nome","Entre com um nome");
 
 		agenda->Botoes[5] = gtk_tool_button_new_from_stock(GTK_STOCK_FIND);
@@ -76,6 +76,17 @@ int main (int argc, char **argv)
 		gtk_widget_set_size_request (GTK_WIDGET(agenda->EDDD),32,-1);
 		gtk_entry_set_editable (agenda->EDDD,false);
 		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(agenda->EDDD),false,false,0);
+		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
+
+
+		LTexto = gtk_label_new_with_mnemonic ("Telefone: ");
+		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
+		agenda->ETelefone= gtk_entry_new ();
+		gtk_widget_set_size_request (GTK_WIDGET(agenda->ETelefone),60,-1);
+		gtk_entry_set_editable (agenda->ETelefone,false);
+		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(agenda->ETelefone),false,false,0);
+
+
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
 		//Terceira Linha Final
 		//Quarta Linha Início
