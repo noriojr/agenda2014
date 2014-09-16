@@ -90,6 +90,15 @@ int main (int argc, char **argv)
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
 		//Terceira Linha Final
 		//Quarta Linha Início
+			
+		Hbox = gtk_hbox_new (false,0);
+		LTexto = gtk_label_new_with_mnemonic ("Obersavação: ");
+		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
+		agenda->TVObs= gtk_text_view_new ();
+		gtk_widget_set_size_request (GTK_WIDGET(agenda->TVObs),-1,40);
+		gtk_text_view_set_editable (agenda->TVObs,false);
+		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(agenda->TVObs),true,true,0);
+		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
 
 		//Quarta Linha Final
 		//ToolBar Navegação Início
