@@ -35,7 +35,7 @@ typedef struct Agenda
 	GtkEntry *EPesquisa, *ECodigo, *ENome, *EDDD, *ETelefone, *ENav;
 	GtkTextView *TVObs;
 	GtkLabel *Label;
-	GtkButton *Pesq;
+	GtkButton *Pesq, *BTNav[4];
 	guint statusbar;
 	} AGENDA;
 
