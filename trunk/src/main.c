@@ -94,9 +94,21 @@ int main (int argc, char **argv)
 		//Quarta Linha Final
 		//ToolBar Navegação Início
 		agenda->BarraNav = gtk_toolbar_new ();
+
+		agenda->ENav = gtk_entry_new ();
+		gtk_entry_set_text (agenda->ENav , "1/1");//criar entry
+		gtk_widget_set_size_request (GTK_WIDGET(agenda->ENav),70,-1);
+		gtk_entry_set_editable (agenda->ENav,false);
+		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->ENav ),"1/1","1/1");
+		
+
+
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
 		agenda->BotoesNav[2] = gtk_tool_button_new_from_stock(GTK_STOCK_GO_DOWN);
 		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BotoesNav [2]),"Proximo","Proximo");
+
+
+			
 		//ToolBar Navegação Final
 		/*End*/
 		agenda->BarraStatus = gtk_statusbar_new ();
