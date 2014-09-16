@@ -113,7 +113,7 @@ int main (int argc, char **argv)
 
 
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
-		agenda->BotoesNav[2] = gtk_tool_button_new_from_stock(GTK_STOCK_GO_DOWN);
+		agenda->BotoesNav[2] = gtk_tool_button_new_from_stock(GTK_STOCK_GO_FORWARD);
 		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BotoesNav [2]),"Proximo","Proximo");
 
 
