@@ -67,7 +67,16 @@ int main (int argc, char **argv)
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
 		//Primeira Linha Final
 		//Segunda Linha Início
-
+			
+			Hbox = gtk_hbox_new (false,0);
+		LTexto = gtk_label_new_with_mnemonic ("Nome:   ");
+		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
+		agenda->ENome = gtk_entry_new ();
+		//gtk_widget_set_size_request (GTK_WIDGET(agenda->ENome),400,-1);
+		gtk_entry_set_editable (agenda->ENome,false);
+		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(agenda->ENome),true,true,0);
+		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,true,0);
+		
 		//Segunda Linha Final
 		//Terceira Linha Início
 		Hbox = gtk_hbox_new (false,0);
