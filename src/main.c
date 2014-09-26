@@ -115,6 +115,10 @@ int main (int argc, char **argv)
 		//ToolBar Navegação Início
 		agenda->BarraNav = gtk_toolbar_new ();
 
+		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
+		agenda->BTNav[0] = gtk_button_new_from_stock(GTK_STOCK_GOTO_FIRST);
+		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [0]),"Inicio","Inicio");
+
 		agenda->ENav = gtk_entry_new ();
 		gtk_entry_set_text (agenda->ENav , "1/1");//criar entry
 		gtk_widget_set_size_request (GTK_WIDGET(agenda->ENav),70,-1);
