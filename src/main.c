@@ -136,6 +136,9 @@ int main (int argc, char **argv)
 
 			
 		//ToolBar Navegação Final
+		agenda->BTNav[3] = gtk_button_new_from_stock(GTK_STOCK_GOTO_LAST);
+		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [3])," Ultimo","Ultimo");
+			
 		/*End*/
 		agenda->BarraStatus = gtk_statusbar_new ();
 		agenda->statusbar = gtk_statusbar_get_context_id(agenda->BarraStatus, "Agenda Eletrônica");
