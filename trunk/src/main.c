@@ -73,7 +73,8 @@ int main (int argc, char **argv)
 		LTexto = gtk_label_new_with_mnemonic ("DDD: ");
 		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
 		agenda->EDDD= gtk_entry_new ();
-		gtk_widget_set_size_request (GTK_WIDGET(agenda->EDDD),32,-1);
+		gtk_entry_set_max_length (agenda->EDDD,3);
+		gtk_widget_set_size_request (GTK_WIDGET(agenda->EDDD),34,-1);
 		gtk_entry_set_editable (agenda->EDDD,false);
 		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(agenda->EDDD),false,false,0);
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
