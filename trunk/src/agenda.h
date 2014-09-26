@@ -21,6 +21,7 @@ typedef struct DADOS
 	char ddd[4];
 	char numero_telefone[11];
 	char observacao[1024];
+	
 	} AGENDA_DADOS;
 #endif /*__agenda_dados__*/
 
