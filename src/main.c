@@ -13,6 +13,7 @@ int main (int argc, char **argv)
 	GtkVBox *Vbox;
 	GtkHBox *Hbox;
 	GtkLabel *LTexto;
+	GtkFrame *FBox;
 
 
 	//Alocando memória para montar o programa
@@ -74,7 +75,7 @@ int main (int argc, char **argv)
 		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
 		agenda->EDDD= gtk_entry_new ();
 		gtk_entry_set_max_length (agenda->EDDD,3);
-		gtk_widget_set_size_request (GTK_WIDGET(agenda->EDDD),34,-1);
+		gtk_widget_set_size_request (GTK_WIDGET(agenda->EDDD),40,-1);
 		gtk_entry_set_editable (agenda->EDDD,false);
 		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(agenda->EDDD),false,false,0);
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
@@ -93,12 +94,12 @@ int main (int argc, char **argv)
 		//Quarta Linha Início
 			
 		Hbox = gtk_hbox_new (false,0);
-		LTexto = gtk_label_new_with_mnemonic ("Obersavação: ");
-		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
+		FBox = gtk_frame_new ("Observação: ");
+		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(FBox),true,true,0);
 		agenda->TVObs= gtk_text_view_new ();
 		gtk_widget_set_size_request (GTK_WIDGET(agenda->TVObs),-1,40);
 		gtk_text_view_set_editable (agenda->TVObs,false);
-		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(agenda->TVObs),true,true,0);
+		gtk_container_add (GTK_CONTAINER(FBox),GTK_WIDGET(agenda->TVObs));
 		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
 
 		//Quarta Linha Final
