@@ -24,7 +24,11 @@ void fechar (GtkWidget *Objeto, gpointer Dados)
 	}
 /*funcao excluir*/
 
+void excluir (GtkWidget *Objeto, gpointer Dados)
+	{
+	printf ("%s:%d Excluindo\n",__FILE__,__LINE__);
 
+	}
 
 /*fim funcao excluir*/
 
