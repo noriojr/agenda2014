@@ -68,7 +68,7 @@ int main (int argc, char **argv)
 		//Primeira Linha Final
 		//Segunda Linha Início
 			
-			Hbox = gtk_hbox_new (false,0);
+		Hbox = gtk_hbox_new (false,0);
 		LTexto = gtk_label_new_with_mnemonic ("Nome:   ");
 		gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
 		agenda->ENome = gtk_entry_new ();
@@ -145,7 +145,8 @@ int main (int argc, char **argv)
 		agenda->statusbar = gtk_statusbar_push(agenda->BarraStatus, agenda->statusbar, "Agenda Eletrônica - PCI 2014");
 		gtk_box_pack_end (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraStatus),false,false,0);
 		//Conectando o sinal de Fechar na janela
-	    g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (gtk_main_quit), agenda);
+/*	    g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (gtk_main_quit), agenda);*/
+		g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (fechar), agenda);
 		//Mostrando a janela e seu Objetos
 		gtk_container_add (GTK_CONTAINER(agenda->Janela),GTK_WIDGET(Vbox));
 		gtk_widget_show_all (GTK_WIDGET(agenda->Janela));

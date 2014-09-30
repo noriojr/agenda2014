@@ -43,4 +43,9 @@ typedef struct Agenda
 #define false 0
 #define true 1
 
+/**
+ * Função para fechar o Programa
+ */
+void fechar (GtkWidget *, gpointer);
+
 #endif /*__AGENDA_H__*/
