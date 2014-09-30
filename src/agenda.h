@@ -14,6 +14,7 @@
 
 #ifndef __agenda_dados__
 #define __agenda_dados__ 1
+
 typedef struct DADOS
 	{
 	long int codigo;
@@ -42,6 +43,11 @@ typedef struct Agenda
 
 #define false 0
 #define true 1
+
+/**
+ * Função para Abrir o Programa
+ */
+void abrir(GtkWidget *, gpointer );
 
 /**
  * Função para fechar o Programa
