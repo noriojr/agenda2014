@@ -150,22 +150,28 @@ int main (int argc, char **argv)
 			agenda->BTNav[0] = gtk_button_new_from_stock(GTK_STOCK_GOTO_FIRST);
 			gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [0]),"Inicio","Inicio");
 
-			agenda->ENav = gtk_entry_new ();
-			gtk_entry_set_text (agenda->ENav , "1/1");//criar entry
-			gtk_widget_set_size_request (GTK_WIDGET(agenda->ENav),70,-1);
-			gtk_entry_set_editable (agenda->ENav,false);
-			gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->ENav ),"1/1","1/1");
 
-			gtk_entry_set_alignment( agenda->ENav, 0.5 );
+		agenda->BTNav[1] = gtk_button_new_from_stock(GTK_STOCK_GO_BACK);
+		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [1])," Voltar","Voltar");
+
+
+		agenda->ENav = gtk_entry_new ();
+		gtk_entry_set_text (agenda->ENav , "1/1");//criar entry
+		gtk_widget_set_size_request (GTK_WIDGET(agenda->ENav),70,-1);
+		gtk_entry_set_editable (agenda->ENav,false);
+		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->ENav ),"1/1","1/1");
+
+		gtk_entry_set_alignment( agenda->ENav, 0.5 );
 								   /*Entry			posição*/
-
-			gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
+				
+		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
+			
+		
 			//agenda->BotoesNav[2] = gtk_tool_button_new_from_stock(GTK_STOCK_GO_FORWARD);
 			agenda->BTNav[2] = gtk_button_new_from_stock(GTK_STOCK_GO_FORWARD);
 			gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [2]),"Proximo","Proximo");
 
-
-			
+										
 			//ToolBar Navegação Final
 			agenda->BTNav[3] = gtk_button_new_from_stock(GTK_STOCK_GOTO_LAST);
 			gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [3])," Ultimo","Ultimo");
