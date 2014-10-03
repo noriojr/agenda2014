@@ -54,5 +54,9 @@ void abrir(GtkWidget *, gpointer );
  */
 void fechar (GtkWidget *, gpointer);
 void excluir (GtkWidget *, gpointer);
+/**
+ * Função para cancelar 
+ */
+void cancelar (GtkWidget *, gpointer);
 
 #endif /*__AGENDA_H__*/
