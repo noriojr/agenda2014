@@ -72,6 +72,7 @@ int main (int argc, char **argv)
 			gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[2]),"Salvar Registro","Salvar Registro");
 
 			agenda->Botoes[3] = gtk_tool_button_new_from_stock(GTK_STOCK_CANCEL);
+			g_signal_connect (GTK_WIDGET(agenda->Botoes[3]), "clicked" ,G_CALLBACK (cancelar), agenda);
 			gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[3]),"Cancelar","Cancelar");
 
 			agenda->Botoes[4] = gtk_tool_button_new_from_stock(GTK_STOCK_REMOVE);
