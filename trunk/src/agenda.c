@@ -41,7 +41,10 @@ void cancelar (GtkWidget *Cancelar, gpointer Dados )
 
 
 /*funcao navegar*/
-
+void navegar (GtkWidget *Navegar, gpointer Dados )
+{
+	printf ("%s:%d Navegando\n",__FILE__,__LINE__);	
+}
 
 /*fim funcao navegar*/
 

@@ -54,6 +54,7 @@ void abrir(GtkWidget *, gpointer );
  */
 void fechar (GtkWidget *, gpointer);
 void excluir (GtkWidget *, gpointer);
+void navegar (GtkWidget *, gpointer);
 /**
  * Função para cancelar 
  */
