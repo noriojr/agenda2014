@@ -187,7 +187,7 @@ int main (int argc, char **argv)
 	/*	    g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (gtk_main_quit), agenda);*/
 			g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (fechar), agenda);
 
-						g_signal_connect (GTK_WIDGET(agenda->Janela), "cliked" ,G_CALLBACK (excluir), agenda);
+						g_signal_connect (GTK_WIDGET(agenda->Botoes[4]), "clicked" ,G_CALLBACK (excluir), agenda);
 
 			//Mostrando a janela e seu Objetos
 			gtk_container_add (GTK_CONTAINER(agenda->Janela),GTK_WIDGET(Vbox));

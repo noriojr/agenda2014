@@ -16,7 +16,7 @@ void abrir (GtkWidget *Objeto, gpointer Dados)
 	dados = Dados;
 	
 	}
-
+		
 void fechar (GtkWidget *Objeto, gpointer Dados)
 	{
 	printf ("%s:%d Fechando Programa\n",__FILE__,__LINE__);
