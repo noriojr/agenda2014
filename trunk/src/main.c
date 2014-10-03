@@ -152,20 +152,20 @@ int main (int argc, char **argv)
 			gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [0]),"Inicio","Inicio");
 
 
-		agenda->BTNav[1] = gtk_button_new_from_stock(GTK_STOCK_GO_BACK);
-		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [1])," Voltar","Voltar");
+			agenda->BTNav[1] = gtk_button_new_from_stock(GTK_STOCK_GO_BACK);
+			gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [1])," Voltar","Voltar");
 
 
-		agenda->ENav = gtk_entry_new ();
-		gtk_entry_set_text (agenda->ENav , "1/1");//criar entry
-		gtk_widget_set_size_request (GTK_WIDGET(agenda->ENav),70,-1);
-		gtk_entry_set_editable (agenda->ENav,false);
-		gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->ENav ),"1/1","1/1");
+			agenda->ENav = gtk_entry_new ();
+			gtk_entry_set_text (agenda->ENav , "1/1");//criar entry
+			gtk_widget_set_size_request (GTK_WIDGET(agenda->ENav),70,-1);
+			gtk_entry_set_editable (agenda->ENav,false);
+			gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->ENav ),"1/1","1/1");
 
-		gtk_entry_set_alignment( agenda->ENav, 0.5 );
+			gtk_entry_set_alignment( agenda->ENav, 0.5 );
 								   /*Entry			posição*/
 				
-		gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
+			gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
 			
 		
 			//agenda->BotoesNav[2] = gtk_tool_button_new_from_stock(GTK_STOCK_GO_FORWARD);
@@ -188,8 +188,8 @@ int main (int argc, char **argv)
 	/*	    g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (gtk_main_quit), agenda);*/
 			g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (fechar), agenda);
 
-						g_signal_connect (GTK_WIDGET(agenda->Botoes[4]), "clicked" ,G_CALLBACK (excluir), agenda);
-				        g_signal_connect (GTK_WIDGET(agenda->Botoes[2]), "clicked" ,G_CALLBACK (navegar), agenda);
+			g_signal_connect (GTK_WIDGET(agenda->Botoes[4]), "clicked" ,G_CALLBACK (excluir), agenda);
+			g_signal_connect (GTK_WIDGET(agenda->Botoes[2]), "clicked" ,G_CALLBACK (navegar), agenda);
 
 			//Mostrando a janela e seu Objetos
 			gtk_container_add (GTK_CONTAINER(agenda->Janela),GTK_WIDGET(Vbox));
