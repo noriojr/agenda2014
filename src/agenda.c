@@ -30,6 +30,12 @@ void excluir (GtkWidget *Objeto, gpointer Dados)
 	printf ("%s:%d Excluindo\n",__FILE__,__LINE__);
 
 	}
+/*funcao cancelar*/
+
+void cancelar (GtkWidget *Cancelar, gpointer Dados )
+{
+	printf ("%s:%d Cancelando\n",__FILE__,__LINE__);	
+}
 
 /*fim funcao excluir*/
 
