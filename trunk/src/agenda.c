@@ -66,7 +66,7 @@ void estatus(AGENDA* janela, int modo)
 		{
 		case 1:
 			{
-			gtk_widget_set_sensitive (GTK_WIDET(janela->Botoes[0]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[0]),true);
 			break;
 			}
 		}
