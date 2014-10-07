@@ -17,7 +17,7 @@ int main (int argc, char **argv)
 	GtkHBox *Hbox;
 	GtkLabel *LTexto;
 	GtkFrame *FBox;
-
+	
 	FILE *dados_tel;
 
 	registros = 0;
@@ -82,6 +82,7 @@ int main (int argc, char **argv)
 			gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Label),"Cancelar","Cancelar");
 
 			agenda->EPesquisa = gtk_entry_new();
+			
 			gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->EPesquisa),"Entre com um nome","Entre com um nome");
 
 			agenda->Botoes[5] = gtk_tool_button_new_from_stock(GTK_STOCK_FIND);
@@ -198,6 +199,10 @@ int main (int argc, char **argv)
 			//Mostrando a janela e seu Objetos
 			gtk_container_add (GTK_CONTAINER(agenda->Janela),GTK_WIDGET(Vbox));
 			gtk_widget_show_all (GTK_WIDGET(agenda->Janela));
+
+			estatus(agenda,1);
+			gtk_window_set_focus(agenda->Janela, GTK_WIDGET(agenda->EPesquisa));
+			
 			//Iniciando o Loop do GTK+
 			gtk_main ();
 			}

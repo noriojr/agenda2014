@@ -24,6 +24,8 @@ void fechar (GtkWidget *Objeto, gpointer Dados)
 	gtk_main_quit();
 
 	}
+
+	
 /*funcao excluir*/
 
 void excluir (GtkWidget *Objeto, gpointer Dados)
@@ -114,3 +116,4 @@ void estatus(AGENDA* janela, int modo)
 			}
 		}
 	}
+
