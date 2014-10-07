@@ -56,3 +56,18 @@ void navegar (GtkWidget *Navegar, gpointer Dados )
 
 
 
+/**
+ * Procedimento status da janela
+ */
+
+void estatus(AGENDA* janela, int modo)
+	{
+	switch(modo)
+		{
+		case 1:
+			{
+			gtk_widget_set_sensitive (GTK_WIDET(janela->Botoes[0]),true);
+			break;
+			}
+		}
+	}
