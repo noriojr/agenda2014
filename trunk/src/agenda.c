@@ -74,6 +74,13 @@ void estatus(AGENDA* janela, int modo)
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[4]),false);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[5]),true);
 			gtk_entry_set_editable (janela->EPesquisa,true);
+			
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [0]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [1]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [2]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [3]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->ENav),false);
+
 			break;
 			}
 		}
