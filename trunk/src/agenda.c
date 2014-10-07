@@ -42,7 +42,7 @@ void cancelar (GtkWidget *Cancelar, gpointer Dados )
 
 
 /*funcao navegar*/
-void navegar (GtkWidget *Navegar, gpointer Dados )
+void navegarprox (GtkWidget *Navegar, gpointer Dados )
 {
 	printf ("%s:%d Navegando\n",__FILE__,__LINE__);	
 }
@@ -55,6 +55,35 @@ void navegar (GtkWidget *Navegar, gpointer Dados )
 
 /*fim funcao pesquisar*/
 
+/*funcao salvar*/
+void salvar (GtkWidget *Salvar, gpointer Dados )
+{
+	printf ("%s:%d Salvando\n",__FILE__,__LINE__);	
+}
+
+/*fim funcao salvar*/
+
+/*funcao inicio*/
+void navegarinic (GtkWidget *Inicio, gpointer Dados )
+{
+	printf ("%s:%d Iniciar\n",__FILE__,__LINE__);	
+}
+
+/*fim funcao inicio*/
+
+/*funcao voltar*/
+void navegarvolt (GtkWidget *Votar, gpointer Dados )
+{
+	printf ("%s:%d Voltar\n",__FILE__,__LINE__);	
+}
+/*fim funcao voltar*/
+
+/*funcao ultimo*/
+void navegarulti (GtkWidget *Ultimo, gpointer Dados )
+{
+	printf ("%s:%d Ultimo\n",__FILE__,__LINE__);	
+}
+/*fim funcao ultimo*/
 
 
 /**
