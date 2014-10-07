@@ -60,4 +60,9 @@ void navegar (GtkWidget *, gpointer);
  */
 void cancelar (GtkWidget *, gpointer);
 
+/**
+ * Procedimento para setar o status da janela
+ */
+void estatus(AGENDA* , int );
+
 #endif /*__AGENDA_H__*/
