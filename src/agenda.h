@@ -65,4 +65,6 @@ void cancelar (GtkWidget *, gpointer);
  */
 void estatus(AGENDA* , int );
 
+
+
 #endif /*__AGENDA_H__*/
