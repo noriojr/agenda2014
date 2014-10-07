@@ -33,6 +33,12 @@ void excluir (GtkWidget *Objeto, gpointer Dados)
 	printf ("%s:%d Excluindo\n",__FILE__,__LINE__);
 
 	}
+/*função editar*/
+void editar (GtkWidget *Editar, gpointer Dados)
+    {
+	printf ("%s:%d Editando\n",__FILE__,__LINE__);
+
+	}
 /*funcao cancelar*/
 
 void cancelar (GtkWidget *Cancelar, gpointer Dados )
@@ -42,7 +48,11 @@ void cancelar (GtkWidget *Cancelar, gpointer Dados )
 
 /*fim funcao excluir*/
 
-
+/*função novo*/
+void novo (GtkWidget *Novo, gpointer Dados)
+{
+	printf ("%d:%d Novo arquivo\n",__FILE__,__LINE__);
+}
 /*funcao navegar*/
 void navegarprox (GtkWidget *Navegar, gpointer Dados )
 {

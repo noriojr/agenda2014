@@ -69,7 +69,14 @@ void cancelar (GtkWidget *, gpointer);
  * Procedimento para setar o status da janela
  */
 void estatus(AGENDA* , int );
-
+/**
+ * Função novo
+ */
+void novo (GtkWidget *, gpointer);
+/**
+ * função editar
+ */
+void editar (GtkWidget *, gpointer);
 
 
 #endif /*__AGENDA_H__*/
