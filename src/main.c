@@ -91,7 +91,7 @@ int main (int argc, char **argv)
 			/*Begin*/
 			//Primeira linha Inicio
 			Hbox = gtk_hbox_new (false,0);
-			LTexto = gtk_label_new_with_mnemonic ("Código: ");
+			LTexto = gtk_label_new_with_mnemonic ("Código:\t");
 			gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
 			agenda->ECodigo = gtk_entry_new ();
 			gtk_widget_set_size_request (GTK_WIDGET(agenda->ECodigo),100,-1);
@@ -102,7 +102,7 @@ int main (int argc, char **argv)
 			//Segunda Linha Início
 			
 			Hbox = gtk_hbox_new (false,0);
-			LTexto = gtk_label_new_with_mnemonic ("Nome:   ");
+			LTexto = gtk_label_new_with_mnemonic ("Nome:\t");
 			gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
 			agenda->ENome = gtk_entry_new ();
 			//gtk_widget_set_size_request (GTK_WIDGET(agenda->ENome),400,-1);
@@ -113,7 +113,7 @@ int main (int argc, char **argv)
 			//Segunda Linha Final
 			//Terceira Linha Início
 			Hbox = gtk_hbox_new (false,0);
-			LTexto = gtk_label_new_with_mnemonic ("DDD: ");
+			LTexto = gtk_label_new_with_mnemonic ("DDD:\t");
 			gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
 			agenda->EDDD= gtk_entry_new ();
 			gtk_entry_set_max_length (agenda->EDDD,3);
@@ -123,7 +123,7 @@ int main (int argc, char **argv)
 			gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
 
 
-			LTexto = gtk_label_new_with_mnemonic ("Telefone: ");
+			LTexto = gtk_label_new_with_mnemonic (" Telefone: ");
 			gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
 			agenda->ETelefone= gtk_entry_new ();
 			gtk_widget_set_size_request (GTK_WIDGET(agenda->ETelefone),60,-1);
