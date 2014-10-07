@@ -16,7 +16,8 @@ void abrir (GtkWidget *Objeto, gpointer Dados)
 	dados = Dados;
 	
 	}
-		
+
+
 void fechar (GtkWidget *Objeto, gpointer Dados)
 	{
 	printf ("%s:%d Fechando Programa\n",__FILE__,__LINE__);
@@ -67,6 +68,12 @@ void estatus(AGENDA* janela, int modo)
 		case 1:
 			{
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[0]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[1]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[2]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[3]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[4]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[5]),true);
+			gtk_entry_set_editable (janela->EPesquisa,true);
 			break;
 			}
 		}
