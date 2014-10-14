@@ -41,20 +41,20 @@ int main (int argc, char **argv)
 		printf ("Erro ao abrir arquivo de dados..\n");
 		exit(1);
 		}
+	free(buffer);
 	fclose(dados_tel);
-	//Alocando memória para carregar os dados
-	dados_agenda = (AGENDA_DADOS *) malloc (sizeof(AGENDA_DADOS)*registros);
-	if (dados_agenda)
+	registros = 20;
+	//Alocando memória para montar o programa
+	agenda = (AGENDA *) malloc(sizeof(AGENDA));
+	if (agenda)
 		{
-
-		//Alocando memória para montar o programa
-		agenda = (AGENDA *) malloc(sizeof(AGENDA));
-		if (agenda)
+		//Alocando memória para carregar os dados
+		agenda->dados = (AGENDA_DADOS *) malloc (sizeof(AGENDA_DADOS)*registros);
+		if (agenda->dados)
 			{
 			//Iniciando GTK+
 			gtk_init (&argc, &argv);
 			//Instanciando a Janela Principal
-		
 
 			agenda->Janela = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 			gtk_widget_set_size_request (GTK_WIDGET(agenda->Janela),600,300);
@@ -82,7 +82,7 @@ int main (int argc, char **argv)
 			gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Label),"Cancelar","Cancelar");
 
 			agenda->EPesquisa = gtk_entry_new();
-			
+		
 			gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->EPesquisa),"Entre com um nome","Entre com um nome");
 
 			agenda->Botoes[5] = gtk_tool_button_new_from_stock(GTK_STOCK_FIND);
@@ -100,7 +100,7 @@ int main (int argc, char **argv)
 			gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
 			//Primeira Linha Final
 			//Segunda Linha Início
-			
+		
 			Hbox = gtk_hbox_new (false,0);
 			LTexto = gtk_label_new_with_mnemonic ("Nome:\t");
 			gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(LTexto),false,false,0);
@@ -109,7 +109,7 @@ int main (int argc, char **argv)
 			gtk_entry_set_editable (agenda->ENome,false);
 			gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(agenda->ENome),true,true,0);
 			gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,true,0);
-		
+	
 			//Segunda Linha Final
 			//Terceira Linha Início
 			Hbox = gtk_hbox_new (false,0);
@@ -134,7 +134,7 @@ int main (int argc, char **argv)
 			gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(Hbox),false,false,0);
 			//Terceira Linha Final
 			//Quarta Linha Início
-			
+		
 			Hbox = gtk_hbox_new (false,0);
 			FBox = gtk_frame_new ("Observação: ");
 			gtk_box_pack_start (GTK_BOX(Hbox),GTK_WIDGET(FBox),true,true,0);
@@ -158,33 +158,33 @@ int main (int argc, char **argv)
 
 
 			agenda->ENav = gtk_entry_new ();
-			gtk_entry_set_text (agenda->ENav , "1/1");//criar entry
+			gtk_entry_set_text (agenda->ENav , "0/0");//criar entry
 			gtk_widget_set_size_request (GTK_WIDGET(agenda->ENav),70,-1);
 			gtk_entry_set_editable (agenda->ENav,false);
 			gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->ENav ),"1/1","1/1");
 
 			gtk_entry_set_alignment( agenda->ENav, 0.5 );
 								   /*Entry			posição*/
-				
-			gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
 			
+			gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraNav),false,false,0);
 		
+	
 			//agenda->BotoesNav[2] = gtk_tool_button_new_from_stock(GTK_STOCK_GO_FORWARD);
 			agenda->BTNav[2] = gtk_button_new_from_stock(GTK_STOCK_GO_FORWARD);
 			gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [2]),"Proximo","Proximo");
 
-										
+									
 			//ToolBar Navegação Final
 			agenda->BTNav[3] = gtk_button_new_from_stock(GTK_STOCK_GOTO_LAST);
 			gtk_toolbar_append_widget (agenda->BarraNav,GTK_WIDGET(agenda->BTNav [3])," Ultimo","Ultimo");
-			
+		
 			/*End*/
 			agenda->BarraStatus = gtk_statusbar_new ();
 			agenda->statusbar = gtk_statusbar_get_context_id(agenda->BarraStatus, "Agenda Eletrônica");
 			agenda->statusbar = gtk_statusbar_push(agenda->BarraStatus, agenda->statusbar, "Agenda Eletrônica - PCI 2014");
 			gtk_box_pack_end (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraStatus),false,false,0);
 			//Conectando o sinal de Abrir na Janela
-			g_signal_connect (GTK_WIDGET(agenda->Janela), "show" ,G_CALLBACK (abrir), dados_agenda);
+			g_signal_connect (GTK_WIDGET(agenda->Janela), "show" ,G_CALLBACK (abrir), agenda);
 			//Conectando o sinal de Fechar na janela
 	/*	    g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (gtk_main_quit), agenda);*/
 			g_signal_connect (GTK_WIDGET(agenda->Janela), "destroy" ,G_CALLBACK (fechar), agenda);
@@ -203,20 +203,22 @@ int main (int argc, char **argv)
 
 			estatus(agenda,1);
 			gtk_window_set_focus(agenda->Janela, GTK_WIDGET(agenda->EPesquisa));
-			
+		
 			//Iniciando o Loop do GTK+
 			gtk_main ();
 			}
 		else
 			{
-			printf ("Erro ao inicar programa\n");
+			printf ("Erro ao alocar memória para os dados\n");
 			exit(1);
-			}
+			}	
 		}
 	else
 		{
-		printf ("Erro ao alocar memória para os dados\n");
+		printf ("Erro ao inicar programa\n");
 		exit(1);
 		}
+/*	free(agenda->dados);*/
+	free(agenda);
 	return 0;
 	}

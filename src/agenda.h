@@ -7,6 +7,7 @@
  ****************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <gtk/gtk.h>
 
 #ifndef __AGENDA_H__
@@ -36,9 +37,14 @@ typedef struct Agenda
 	GtkStatusbar *BarraStatus;
 	GtkEntry *EPesquisa, *ECodigo, *ENome, *EDDD, *ETelefone, *ENav;
 	GtkTextView *TVObs;
+	GtkTextBuffer *BFObs;
+	GtkTextIter *bfi, *bff;
 	GtkLabel *Label;
 	GtkButton *Pesq, *BTNav[4];
 	guint statusbar;
+	AGENDA_DADOS *dados;
+	long int regs;
+	long int reg_atual;
 	} AGENDA;
 
 #define false 0
@@ -78,5 +84,10 @@ void novo (GtkWidget *, gpointer);
  */
 void editar (GtkWidget *, gpointer);
 
+
+/**
+ * Procedimento para preencher campos da janela
+ */
+void carregar(AGENDA *);
 
 #endif /*__AGENDA_H__*/
