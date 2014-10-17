@@ -12,8 +12,8 @@ void abrir (GtkWidget *Objeto, gpointer Dados)
 	{
 	AGENDA *agenda;
 	FILE *arquivo;
-	char *buffer, *aux;
-	int i, c, a, r;
+	char *buffer, *aux, aux2[11];
+	int i, c, a, r, j, n;
 	printf ("%s:%d Carregando Dados\n",__FILE__,__LINE__);
 
 	agenda = Dados;
@@ -65,7 +65,18 @@ void abrir (GtkWidget *Objeto, gpointer Dados)
 								case 3:
 									{
 /*									printf("%s\n",aux);*/
-									strcpy(agenda->dados[i-1].numero_telefone,aux);
+									for (j=0,n=0; j < strlen(aux); j++)
+										{
+										if (j == 4)
+											{
+											aux2[n] = '-';
+											n++;
+											}
+										aux2[n] = aux[j];
+										n++;
+										}
+									aux2[n] = '\0';
+									strcpy(agenda->dados[i-1].numero_telefone,aux2);
 									break;
 									}
 								}

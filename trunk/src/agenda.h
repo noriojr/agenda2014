@@ -21,13 +21,14 @@ typedef struct DADOS
 	long int codigo;
 	char nome[101];
 	char ddd[4];
-	char numero_telefone[11];
+	char numero_telefone[11];//9999-9999
 	char observacao[1024];
 	
 	} AGENDA_DADOS;
 #endif /*__agenda_dados__*/
 
 #define ARQ_DADOS "dados.csv"
+#define IMG_ICO "img/agenda.ico"
 
 typedef struct Agenda
 	{
