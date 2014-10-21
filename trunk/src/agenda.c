@@ -114,9 +114,29 @@ void abrir (GtkWidget *Objeto, gpointer Dados)
 
 void fechar (GtkWidget *Objeto, gpointer Dados)
 	{
-	printf ("%s:%d Fechando Programa\n",__FILE__,__LINE__);
-	gtk_main_quit();
+	int i;
+	FILE *arquivo;
+	AGENDA *dd;
 
+	dd = Dados;
+	arquivo = fopen(ARQ_DADOS,"w+");
+	//arquivo = fopen("teste.csv","w+");
+	if (arquivo)
+		{
+		fprintf(arquivo,"%d\n",dd->regs);
+		for (i=0; i < dd->regs; i++)
+			{
+			fprintf(arquivo,"%d,%s,%s,%s,%s",dd->dados[i].codigo,dd->dados[i].nome,dd->dados[i].ddd,preparar(1,dd->dados[i].numero_telefone),dd->dados[i].observacao);
+			}
+		}
+	else
+		{
+		printf ("Erro ao criar arquivo...");
+		exit(1);
+		}
+	fclose(arquivo);
+	//Fechar a Janela da Agenda
+	gtk_main_quit();
 	}
 
 	
@@ -144,9 +164,14 @@ void cancelar (GtkWidget *Cancelar, gpointer Dados )
 
 /*função novo*/
 void novo (GtkWidget *Novo, gpointer Dados)
-{
-	printf ("%d:%d Novo arquivo\n",__FILE__,__LINE__);
-}
+	{
+	AGENDA *dd;
+
+	dd = Dados;
+	dd->acao_atual = 1;
+	estatus(dd,2);
+	gtk_window_set_focus (dd->Janela,GTK_WIDGET(dd->ENome));
+	}
 /*funcao navegar*/
 void navegarprox (GtkWidget *Navegar, gpointer Dados )
 	{
@@ -237,7 +262,6 @@ void estatus(AGENDA* janela, int modo)
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[4]),false);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[5]),true);
 			gtk_entry_set_editable (janela->EPesquisa,true);
-			
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [0]),true);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [1]),true);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [2]),true);
@@ -247,6 +271,10 @@ void estatus(AGENDA* janela, int modo)
 			gtk_entry_set_editable (janela->ENome,false);
 			gtk_entry_set_editable (janela->EDDD,false);
 			gtk_entry_set_editable (janela->ETelefone,false);
+			break;
+			}
+		case 2:
+			{
 			
 			break;
 			}
@@ -279,4 +307,36 @@ void carregar(AGENDA *dd)
 /*	gtk_text_buffer_get_bounds (dd->BFObs,dd->bfi,dd->bff);*/
 	gtk_text_buffer_set_text (dd->BFObs,dd->dados[dd->reg_atual].observacao,strlen(dd->dados[dd->reg_atual].observacao));
 	gtk_text_view_set_buffer (dd->TVObs,dd->BFObs);
+	}
+
+/**
+ * Tratamento de Informações
+ */
+char *preparar(int modo, char *entrada)
+	{
+	char *saida;
+	int len, i, j;
+
+	len = strlen(entrada);
+	saida = (char *) malloc(sizeof(char)*(2*len));
+	switch(modo)
+		{
+		case 1:
+			{
+			//Remoção do hifem do número do telefone
+			for (i=0,j=0; i < len; i++)
+				{
+				if (entrada[i] == '-')
+					{
+					i++;
+					}
+				saida[j] = entrada[i];
+				j++;
+				}
+			break;
+			}
+		}
+
+	saida[j] = '\0';
+	return (saida);
 	}
