@@ -66,6 +66,7 @@ int main (int argc, char **argv)
 			gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraMenu),false,false,0);
 			agenda->Botoes[0] = gtk_tool_button_new_from_stock(GTK_STOCK_NEW);
 			gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[0]),"Novo Registro","Novo Registro");
+			
 
 			agenda->Botoes[1] = gtk_tool_button_new_from_stock(GTK_STOCK_EDIT);
 			gtk_toolbar_append_widget (agenda->BarraMenu,GTK_WIDGET(agenda->Botoes[1]),"Editar","Editar");

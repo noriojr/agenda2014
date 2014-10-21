@@ -46,6 +46,7 @@ typedef struct Agenda
 	AGENDA_DADOS *dados;
 	long int regs;
 	long int reg_atual;
+	int acao_atual;
 	} AGENDA;
 
 #define false 0
@@ -90,5 +91,10 @@ void editar (GtkWidget *, gpointer);
  * Procedimento para preencher campos da janela
  */
 void carregar(AGENDA *);
+
+/**
+ * Tratamento de Informações
+ */
+char *preparar(int, char *);
 
 #endif /*__AGENDA_H__*/
