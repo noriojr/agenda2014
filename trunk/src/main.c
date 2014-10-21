@@ -204,7 +204,6 @@ int main (int argc, char **argv)
 			gtk_container_add (GTK_CONTAINER(agenda->Janela),GTK_WIDGET(Vbox));
 			gtk_widget_show_all (GTK_WIDGET(agenda->Janela));
 
-			estatus(agenda,1);
 			gtk_window_set_focus(agenda->Janela, GTK_WIDGET(agenda->EPesquisa));
 
 			//Iniciando o Loop do GTK+
