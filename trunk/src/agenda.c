@@ -285,6 +285,9 @@ void estatus(AGENDA* janela, int modo)
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [2]),false);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [3]),false);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->ENav),false);
+			gtk_entry_set_editable (janela->ENome,true);
+			gtk_entry_set_editable (janela->EDDD,true);
+			gtk_entry_set_editable (janela->ETelefone,true);
 			break;
 			}
 		}
