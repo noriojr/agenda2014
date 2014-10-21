@@ -285,6 +285,13 @@ void estatus(AGENDA* janela, int modo)
 			}
 		case 2:
 			{
+
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[0]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[1]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[2]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[3]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[4]),false);
+				
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [0]),false);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [1]),false);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [2]),false);
