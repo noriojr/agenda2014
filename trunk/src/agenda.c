@@ -136,7 +136,12 @@ void fechar (GtkWidget *Objeto, gpointer Dados)
 		}
 	fclose(arquivo);
 	//Fechar a Janela da Agenda
+
+
+
 	gtk_main_quit();
+	
+	
 	}
 
 	
@@ -275,7 +280,11 @@ void estatus(AGENDA* janela, int modo)
 			}
 		case 2:
 			{
-			
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [0]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [1]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [2]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [3]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->ENav),false);
 			break;
 			}
 		}
