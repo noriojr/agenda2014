@@ -108,6 +108,7 @@ void abrir (GtkWidget *Objeto, gpointer Dados)
 	free(buffer);
 	free(aux);
 	agenda->reg_atual=0;
+	estatus(agenda,1);
 	carregar(agenda);
 	}
 
@@ -161,9 +162,13 @@ void editar (GtkWidget *Editar, gpointer Dados)
 /*funcao cancelar*/
 
 void cancelar (GtkWidget *Cancelar, gpointer Dados )
-{
-	printf ("%s:%d Cancelando\n",__FILE__,__LINE__);	
-}
+	{
+	AGENDA *agenda;
+
+	
+	agenda = Dados;
+	
+	}
 
 /*fim funcao excluir*/
 
