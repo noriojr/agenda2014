@@ -316,6 +316,8 @@ void estatus(AGENDA* janela, int modo)
 			gtk_entry_set_editable (janela->ENome,true);
 			gtk_entry_set_editable (janela->EDDD,true);
 			gtk_entry_set_editable (janela->ETelefone,true);
+			gtk_text_view_set_editable (janela->TVObs,true);
+
 			break;
 			}
 		}
