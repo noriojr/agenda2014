@@ -137,12 +137,8 @@ void fechar (GtkWidget *Objeto, gpointer Dados)
 		}
 	fclose(arquivo);
 	//Fechar a Janela da Agenda
-
-
-
 	gtk_main_quit();
-	
-	
+		
 	}
 
 	
@@ -206,7 +202,27 @@ void navegarprox (GtkWidget *Navegar, gpointer Dados )
 /*funcao salvar*/
 void salvar (GtkWidget *Salvar, gpointer Dados )
 {
-	printf ("%s:%d Salvando\n",__FILE__,__LINE__);	
+	printf ("%s:%d Salvando \n",__FILE__,__LINE__);
+	int i;
+	FILE *arquivo;
+	AGENDA *dd;
+	dd = Dados;
+	arquivo = fopen(ARQ_DADOS,"w+");
+	
+	if (arquivo)
+		{
+		fprintf(arquivo,"%d\n",dd->regs);
+		for (i=0; i < dd->regs; i++)
+			{
+			fprintf(arquivo,"%d,%s,%s,%s,%s",dd->dados[i].codigo,dd->dados[i].nome,dd->dados[i].ddd,preparar(1,dd->dados[i].numero_telefone),dd->dados[i].observacao);
+			}
+		}
+	else
+		{
+		printf ("Erro ao salvar dados...");
+		exit(1);
+		}
+	fclose(arquivo);
 }
 
 /*fim funcao salvar*/
