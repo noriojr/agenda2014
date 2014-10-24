@@ -318,6 +318,10 @@ void estatus(AGENDA* janela, int modo)
 			gtk_entry_set_editable (janela->EDDD,true);
 			gtk_entry_set_editable (janela->ETelefone,true);
 			gtk_text_view_set_editable (janela->TVObs,true);
+			gtk_entry_set_text(janela->ECodigo,"");
+			gtk_entry_set_text(janela->ENome,"");
+			gtk_entry_set_text(janela->EDDD,"");
+			gtk_entry_set_text(janela->ETelefone,"");
 			janela->BFObs = gtk_text_view_get_buffer (janela->TVObs);
 			gtk_text_buffer_set_text (janela->BFObs,"",0);
 
@@ -336,7 +340,7 @@ void carregar(AGENDA *dd)
 	gtk_entry_set_text(dd->ENav,aux);
 	free(aux);
 	//Carregando código
-	aux = (char *) malloc(sizeof(char)*64);
+	aux = (char *) malloc(sizeof(char)*64);gtk_entry_set_text(dd->ECodigo,aux);
 	sprintf (aux, "%05d",dd->dados[dd->reg_atual].codigo);
 	gtk_entry_set_text(dd->ECodigo,aux);
 	free(aux);
