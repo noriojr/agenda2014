@@ -152,6 +152,10 @@ void excluir (GtkWidget *Objeto, gpointer Dados)
 /*função editar*/
 void editar (GtkWidget *Editar, gpointer Dados)
     {
+	AGENDA *dd;
+	dd = Dados;
+	dd->acao_atual = 2;
+	estatus(dd,3);
 	printf ("%s:%d Editando\n",__FILE__,__LINE__);
 
 	}
@@ -325,6 +329,10 @@ void estatus(AGENDA* janela, int modo)
 			janela->BFObs = gtk_text_view_get_buffer (janela->TVObs);
 			gtk_text_buffer_set_text (janela->BFObs,"",0);
 
+			}
+		case 3:
+			{
+			
 			break;
 			}
 		}
