@@ -297,6 +297,7 @@ void estatus(AGENDA* janela, int modo)
 			gtk_entry_set_editable (janela->ENome,false);
 			gtk_entry_set_editable (janela->EDDD,false);
 			gtk_entry_set_editable (janela->ETelefone,false);
+			
 			break;
 			}
 		case 2:
@@ -317,6 +318,8 @@ void estatus(AGENDA* janela, int modo)
 			gtk_entry_set_editable (janela->EDDD,true);
 			gtk_entry_set_editable (janela->ETelefone,true);
 			gtk_text_view_set_editable (janela->TVObs,true);
+			janela->BFObs = gtk_text_view_get_buffer (janela->TVObs);
+			gtk_text_buffer_set_text (janela->BFObs,"",0);
 
 			break;
 			}
