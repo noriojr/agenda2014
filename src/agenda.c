@@ -215,10 +215,10 @@ void salvar (GtkWidget *Salvar, gpointer Dados )
 	
 	if (arquivo)
 		{
-		fprintf(arquivo,"%d\n",dd->regs);
+		fprintf(arquivo,"%ld\n",dd->regs);
 		for (i=0; i < dd->regs; i++)
 			{
-			fprintf(arquivo,"%d,%s,%s,%s,%s",dd->dados[i].codigo,dd->dados[i].nome,dd->dados[i].ddd,preparar(1,dd->dados[i].numero_telefone),dd->dados[i].observacao);
+			fprintf(arquivo,"%ld,%s,%s,%s,%s",dd->dados[i].codigo,dd->dados[i].nome,dd->dados[i].ddd,preparar(1,dd->dados[i].numero_telefone),dd->dados[i].observacao);
 			}
 		}
 	else
@@ -289,7 +289,7 @@ void estatus(AGENDA* janela, int modo)
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[1]),true);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[2]),false);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[3]),false);
-			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[4]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[4]),true);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[5]),true);
 			gtk_entry_set_editable (janela->EPesquisa,true);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->BTNav [0]),true);
@@ -332,7 +332,11 @@ void estatus(AGENDA* janela, int modo)
 			}
 		case 3:
 			{
-			
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[0]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[1]),false);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[2]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[3]),true);
+			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[4]),false);	
 			break;
 			}
 		}
@@ -344,12 +348,12 @@ void carregar(AGENDA *dd)
 
 	//Atualização barra de navegação
 	aux = (char *) malloc(sizeof(char)*32);
-	sprintf (aux, "%d/%d",(dd->reg_atual+1),dd->regs);
+	sprintf (aux, "%ld/%ld",(dd->reg_atual+1),dd->regs);
 	gtk_entry_set_text(dd->ENav,aux);
 	free(aux);
 	//Carregando código
 	aux = (char *) malloc(sizeof(char)*64);gtk_entry_set_text(dd->ECodigo,aux);
-	sprintf (aux, "%05d",dd->dados[dd->reg_atual].codigo);
+	sprintf (aux, "%05ld",dd->dados[dd->reg_atual].codigo);
 	gtk_entry_set_text(dd->ECodigo,aux);
 	free(aux);
 	//Carregando nome
