@@ -205,29 +205,30 @@ void navegarprox (GtkWidget *Navegar, gpointer Dados )
 
 /*funcao salvar*/
 void salvar (GtkWidget *Salvar, gpointer Dados )
-{
-	printf ("%s:%d Salvando \n",__FILE__,__LINE__);
-	int i;
-	FILE *arquivo;
+	{
 	AGENDA *dd;
+	AGENDA_DADOS dd_aux;
 	dd = Dados;
-	arquivo = fopen(ARQ_DADOS,"w+");
-	
-	if (arquivo)
+
+	strcpy(dd_aux.nome,gtk_entry_get_text(dd->ENome));
+	strcpy(dd_aux.ddd,gtk_entry_get_text(dd->EDDD));
+	strcpy(dd_aux.numero_telefone,gtk_entry_get_text(dd->ETelefone));
+	dd->BFObs = gtk_text_view_get_buffer (dd->TVObs);
+	gtk_text_buffer_get_bounds(dd->BFObs,dd->bfi, dd->bff);
+	strcpy(dd_aux.observacao,gtk_text_buffer_get_text (dd->BFObs,dd->bfi,dd->bff,true));
+	switch(dd->acao_atual)
 		{
-		fprintf(arquivo,"%ld\n",dd->regs);
-		for (i=0; i < dd->regs; i++)
+		case 1:
 			{
-			fprintf(arquivo,"%ld,%s,%s,%s,%s",dd->dados[i].codigo,dd->dados[i].nome,dd->dados[i].ddd,preparar(1,dd->dados[i].numero_telefone),dd->dados[i].observacao);
+			dd_aux.codigo = dd->dados[dd->regs-1].codigo+1;
+			dd->regs++;
+			dd->reg_atual = dd->regs-1;
+			break;
 			}
 		}
-	else
-		{
-		printf ("Erro ao salvar dados...");
-		exit(1);
-		}
-	fclose(arquivo);
-}
+	dd->dados[dd->reg_atual] = dd_aux;
+	carregar(dd);
+	}
 
 /*fim funcao salvar*/
 
