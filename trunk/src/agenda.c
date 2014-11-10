@@ -214,8 +214,9 @@ void salvar (GtkWidget *Salvar, gpointer Dados )
 	strcpy(dd_aux.ddd,gtk_entry_get_text(dd->EDDD));
 	strcpy(dd_aux.numero_telefone,gtk_entry_get_text(dd->ETelefone));
 	dd->BFObs = gtk_text_view_get_buffer (dd->TVObs);
-	gtk_text_buffer_get_bounds(dd->BFObs,dd->bfi, dd->bff);
-	strcpy(dd_aux.observacao,gtk_text_buffer_get_text (dd->BFObs,dd->bfi,dd->bff,true));
+	gtk_text_buffer_get_start_iter (dd->BFObs, &dd->bfi);
+	gtk_text_buffer_get_end_iter (dd->BFObs, &dd->bff);
+	sprintf(dd_aux.observacao,"%s\n",gtk_text_buffer_get_text (dd->BFObs,&dd->bfi,&dd->bff,false));
 	switch(dd->acao_atual)
 		{
 		case 1:
@@ -376,11 +377,11 @@ void carregar(AGENDA *dd)
  */
 char *preparar(int modo, char *entrada)
 	{
-	char *saida;
+	char *saida, buff[7];
 	int len, i, j;
 
 	len = strlen(entrada);
-	saida = (char *) malloc(sizeof(char)*(2*len));
+	saida = (char *) malloc(sizeof(char)*(6*len));
 	switch(modo)
 		{
 		case 1:
