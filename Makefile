@@ -1,5 +1,5 @@
 CC=gcc
-LIBS=-L/usr/lib `pkg-config --libs gtk+-2.0`
+LIBS=-L. -L/usr/lib `pkg-config --libs gtk+-2.0`
 INC=-I. -I./src -I/usr/include `pkg-config --cflags gtk+-2.0`
 arqs=src/main.c src/agenda.c
 arqh=src/agenda.h

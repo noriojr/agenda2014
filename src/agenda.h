@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <gtk/gtk.h>
+#include <locale.h>
+
 
 #ifndef __AGENDA_H__
 #define __AGENDA_H__ 1
@@ -39,7 +41,7 @@ typedef struct Agenda
 	GtkEntry *EPesquisa, *ECodigo, *ENome, *EDDD, *ETelefone, *ENav;
 	GtkTextView *TVObs;
 	GtkTextBuffer *BFObs;
-	GtkTextIter *bfi, *bff;
+	GtkTextIter bfi, bff;
 	GtkLabel *Label;
 	GtkButton *Pesq, *BTNav[4];
 	guint statusbar;
