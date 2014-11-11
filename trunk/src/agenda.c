@@ -172,10 +172,11 @@ void editar (GtkWidget *Editar, gpointer Dados)
 void cancelar (GtkWidget *Cancelar, gpointer Dados )
 	{
 	AGENDA *agenda;
-
 	
 	agenda = Dados;
-	
+	agenda->acao_atual = 0;
+	estatus(agenda,1);
+	carregar(agenda);
 	}
 
 /*fim funcao excluir*/
