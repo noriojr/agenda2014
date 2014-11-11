@@ -11,7 +11,6 @@
 #include <gtk/gtk.h>
 #include <locale.h>
 
-
 #ifndef __AGENDA_H__
 #define __AGENDA_H__ 1
 
