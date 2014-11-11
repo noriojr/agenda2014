@@ -131,13 +131,10 @@ void fechar (GtkWidget *Objeto, gpointer Dados)
 		fprintf(arquivo,"%d\n",dd->regs);
 		for (i=0; i < dd->regs; i++)
 			{
+			fprintf(arquivo,"%d,%s,%s,%s,%s",dd->dados[i].codigo,dd->dados[i].nome,dd->dados[i].ddd,preparar(1,dd->dados[i].numero_telefone),dd->dados[i].observacao);
 			if (i < dd->regs-1)
 				{
-				fprintf(arquivo,"%d,%s,%s,%s,%s\n",dd->dados[i].codigo,dd->dados[i].nome,dd->dados[i].ddd,preparar(1,dd->dados[i].numero_telefone),dd->dados[i].observacao);
-				}
-			else
-				{
-				fprintf(arquivo,"%d,%s,%s,%s,%s",dd->dados[i].codigo,dd->dados[i].nome,dd->dados[i].ddd,preparar(1,dd->dados[i].numero_telefone),dd->dados[i].observacao);
+				fprintf(arquivo,"\n");
 				}
 			}
 		}
