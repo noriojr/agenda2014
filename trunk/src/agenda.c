@@ -224,7 +224,7 @@ void salvar (GtkWidget *Salvar, gpointer Dados )
 	dd->BFObs = gtk_text_view_get_buffer (dd->TVObs);
 	gtk_text_buffer_get_start_iter (dd->BFObs, &dd->bfi);
 	gtk_text_buffer_get_end_iter (dd->BFObs, &dd->bff);
-	sprintf(dd_aux.observacao,"%s\n",gtk_text_buffer_get_text (dd->BFObs,&dd->bfi,&dd->bff,false));
+	strcpy(dd_aux.observacao,gtk_text_buffer_get_text (dd->BFObs,&dd->bfi,&dd->bff,false));
 	switch(dd->acao_atual)
 		{
 		case 1:
@@ -237,6 +237,7 @@ void salvar (GtkWidget *Salvar, gpointer Dados )
 		}
 	dd->dados[dd->reg_atual] = dd_aux;
 	carregar(dd);
+	estatus(dd,1);
 	}
 
 /*fim funcao salvar*/
@@ -311,7 +312,7 @@ void estatus(AGENDA* janela, int modo)
 			gtk_entry_set_editable (janela->ENome,false);
 			gtk_entry_set_editable (janela->EDDD,false);
 			gtk_entry_set_editable (janela->ETelefone,false);
-			
+			gtk_window_set_focus (janela->Janela,GTK_WIDGET(janela->EPesquisa));
 			break;
 			}
 		case 2:
