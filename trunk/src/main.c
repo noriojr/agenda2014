@@ -56,12 +56,13 @@ int main (int argc, char **argv)
 			//Iniciando GTK+
 			gtk_init (&argc, &argv);
 			//Instanciando a Janela Principal
-			GError **erro_icone;
+			GdkPixbuf *pix_buf;
+			pix_buf = gdk_pixbuf_new_from_xpm_data(agenda_ico);
 			agenda->Janela = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 			gtk_widget_set_size_request (GTK_WIDGET(agenda->Janela),600,-1);
 			gtk_window_set_position(agenda->Janela,GTK_WIN_POS_CENTER_ALWAYS);
 			gtk_window_set_title (agenda->Janela, "Agenda 2014 - PCI");
-			gtk_window_set_icon_from_file(agenda->Janela,IMG_ICO,erro_icone);
+			gtk_window_set_icon(agenda->Janela,pix_buf);
 			Vbox = gtk_vbox_new (false,0);
 			agenda->BarraMenu = gtk_toolbar_new ();
 			gtk_box_pack_start (GTK_BOX(Vbox),GTK_WIDGET(agenda->BarraMenu),false,false,0);
