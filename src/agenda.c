@@ -235,6 +235,11 @@ void salvar (GtkWidget *Salvar, gpointer Dados )
 			dd->reg_atual = dd->regs-1;
 			break;
 			}
+		case 2:
+			{
+			dd_aux.codigo = dd->dados[dd->reg_atual].codigo;
+			break;
+			}
 		}
 	dd->dados[dd->reg_atual] = dd_aux;
 	carregar(dd);
