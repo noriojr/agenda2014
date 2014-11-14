@@ -163,9 +163,9 @@ void editar (GtkWidget *Editar, gpointer Dados)
 	AGENDA *dd;
 	dd = Dados;
 	dd->acao_atual = 2;
-	estatus(dd,3);
+	estatus(dd,2);
 	printf ("%s:%d Editando\n",__FILE__,__LINE__);
-
+	gtk_window_set_focus (dd->Janela,GTK_WIDGET(dd->ENome));
 	}
 /*funcao cancelar*/
 
@@ -183,12 +183,21 @@ void cancelar (GtkWidget *Cancelar, gpointer Dados )
 
 /*função novo*/
 void novo (GtkWidget *Novo, gpointer Dados)
+
+
 	{
 	AGENDA *dd;
-
+	
 	dd = Dados;
 	dd->acao_atual = 1;
 	estatus(dd,2);
+	gtk_entry_set_text(dd->ECodigo,"");
+	gtk_entry_set_text(dd->ENome,"");
+	gtk_entry_set_text(dd->EDDD,"");
+	gtk_entry_set_text(dd->ETelefone,"");
+	dd->BFObs = gtk_text_view_get_buffer (dd->TVObs);
+	gtk_text_buffer_set_text (dd->BFObs,"",0);
+
 	gtk_window_set_focus (dd->Janela,GTK_WIDGET(dd->ENome));
 	}
 /*funcao navegar*/
@@ -339,13 +348,7 @@ void estatus(AGENDA* janela, int modo)
 			gtk_entry_set_editable (janela->EDDD,true);
 			gtk_entry_set_editable (janela->ETelefone,true);
 			gtk_text_view_set_editable (janela->TVObs,true);
-			gtk_entry_set_text(janela->ECodigo,"");
-			gtk_entry_set_text(janela->ENome,"");
-			gtk_entry_set_text(janela->EDDD,"");
-			gtk_entry_set_text(janela->ETelefone,"");
-			janela->BFObs = gtk_text_view_get_buffer (janela->TVObs);
-			gtk_text_buffer_set_text (janela->BFObs,"",0);
-
+			
 			}
 		case 3:
 			{
