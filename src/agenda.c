@@ -421,3 +421,26 @@ char *preparar(int modo, char *entrada)
 	saida[j] = '\0';
 	return (saida);
 	}
+
+void foco_ddd (GtkWidget *Objeto, gpointer Dados)
+	{
+	AGENDA *dd;
+	dd = Dados;
+
+	gtk_window_set_focus(dd->Janela,GTK_WIDGET(dd->EDDD));
+	}
+
+void foco_telefone (GtkWidget *Objeto, gpointer Dados)
+	{
+	AGENDA *dd;
+	dd = Dados;
+
+	gtk_window_set_focus(dd->Janela,GTK_WIDGET(dd->ETelefone));
+	}
+void foco_obs (GtkWidget *Objeto, gpointer Dados)
+	{
+	AGENDA *dd;
+	dd = Dados;
+
+	gtk_window_set_focus(dd->Janela,GTK_WIDGET(dd->ENav));
+	}

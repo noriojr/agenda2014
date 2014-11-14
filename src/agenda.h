@@ -98,5 +98,15 @@ void carregar(AGENDA *);
  * Tratamento de Informações
  */
 char *preparar(int, char *);
+/**
+ * Função Foco
+ */
+void foco_ddd (GtkWidget *, gpointer); 
+
+void foco_telefone (GtkWidget *, gpointer);
+
+void foco_obs (GtkWidget *, gpointer);
+
+
 
 #endif /*__AGENDA_H__*/
