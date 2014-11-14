@@ -207,7 +207,12 @@ int main (int argc, char **argv)
 			gtk_widget_show_all (GTK_WIDGET(agenda->Janela));
 
 			gtk_window_set_focus(agenda->Janela, GTK_WIDGET(agenda->EPesquisa));
-
+/*pesquisa para localizar->fazer*/
+			g_signal_connect (GTK_WIDGET(agenda->ENome), "activate" ,G_CALLBACK (foco_ddd), agenda);
+			g_signal_connect (GTK_WIDGET(agenda->EDDD), "activate" ,G_CALLBACK (foco_telefone), agenda);
+			g_signal_connect (GTK_WIDGET(agenda->ETelefone), "activate" ,G_CALLBACK (foco_obs), agenda);
+			
+			
 			//Iniciando o Loop do GTK+
 			gtk_main ();
 			
