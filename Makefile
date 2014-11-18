@@ -6,14 +6,27 @@ arqh=src/agenda.h src/icones.h
 objs=main.o agenda.o
 prg=PCI-Agenda-2014
 version=1.0.0
+ifneq ($(UNAME), Linux)
+	RES=;
+	LDLFAGS +=
+	LDADD +=
+else
+	RES=.rc
+	objs += win32.o
+	LDFLAGS += -mwindows -D_WIN32_WINNT=0x0501
+	LDADD += -lws2_32
+endif
 
 all: $(prg)
 
-$(prg): .o
-	$(CC) -g -o $@ $(objs) $(LIBS)
+$(prg): .o $(RES)
+	$(CC) $(LDFLAGS) -g -o $@ $(objs) $(LIBS) $(LDADD)
 
 .o: clean
 	$(CC) -g -c $(arqs) $(INC) 
+
+.rc: 
+	winres -DVERSION="\"$(version)\"" -o win32.o win32.rc
 
 clean:
 	rm -rf $(objs) $(prg) 

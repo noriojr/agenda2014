@@ -1,0 +1,27 @@
+1 VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  1,0,0,0
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "041604E4"
+      BEGIN
+		VALUE "CompanyName", "Alcione Ferreira e Turma PCI 2014"
+		VALUE "FileDescription", "Agenda Eletrônica"
+		VALUE "FileVersion", "1.0.0"
+		VALUE "InternalName", "PCI-Agenda-2014"
+		VALUE "LegalCopyright", "Alcione Ferreira"
+		VALUE "OriginalFilename", "PCI-Agenda-2014.exe"
+		VALUE "ProductName", "Agenda Eletrôncia"
+		VALUE "ProductVersion", "1.0.0"
+		VALUE "Comments", "Site do desenvolvedor http://moodle.alcionesytes.net/"
+	  END
+  END
+
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0416, 1252
+  END
+END
+
+ag ICON "./img/agenda.ico"
