@@ -7,12 +7,12 @@ BEGIN
     BLOCK "041604E4"
       BEGIN
 		VALUE "CompanyName", "Alcione Ferreira e Turma PCI 2014"
-		VALUE "FileDescription", "Agenda Eletrônica"
+		VALUE "FileDescription", "Agenda Eletronica"
 		VALUE "FileVersion", "1.0.0"
 		VALUE "InternalName", "PCI-Agenda-2014"
 		VALUE "LegalCopyright", "Alcione Ferreira"
 		VALUE "OriginalFilename", "PCI-Agenda-2014.exe"
-		VALUE "ProductName", "Agenda Eletrôncia"
+		VALUE "ProductName", "Agenda Eletroncia"
 		VALUE "ProductVersion", "1.0.0"
 		VALUE "Comments", "Site do desenvolvedor http://moodle.alcionesytes.net/"
 	  END
