@@ -7,7 +7,7 @@ objs=main.o agenda.o
 prg=PCI-Agenda-2014
 version=1.0.0
 ifeq ($(shell uname), Linux)
-	RES=;
+	RES=
 	LDLFAGS +=
 	LDADD +=
 else
