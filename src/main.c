@@ -202,6 +202,7 @@ int main (int argc, char **argv)
 			g_signal_connect (GTK_WIDGET(agenda->Botoes[2]), "clicked" ,G_CALLBACK (salvar), agenda);
 			g_signal_connect (GTK_WIDGET(agenda->Botoes[1]), "clicked" ,G_CALLBACK (editar), agenda);
 			g_signal_connect (GTK_WIDGET(agenda->Botoes[0]), "clicked" ,G_CALLBACK (novo), agenda);
+			g_signal_connect (GTK_WIDGET(agenda->Botoes[5]), "clicked" ,G_CALLBACK (pesquisar), agenda);
 			//Mostrando a janela e seu Objetos
 			gtk_container_add (GTK_CONTAINER(agenda->Janela),GTK_WIDGET(Vbox));
 			gtk_widget_show_all (GTK_WIDGET(agenda->Janela));
@@ -211,7 +212,7 @@ int main (int argc, char **argv)
 			g_signal_connect (GTK_WIDGET(agenda->ENome), "activate" ,G_CALLBACK (foco_ddd), agenda);
 			g_signal_connect (GTK_WIDGET(agenda->EDDD), "activate" ,G_CALLBACK (foco_telefone), agenda);
 			g_signal_connect (GTK_WIDGET(agenda->ETelefone), "activate" ,G_CALLBACK (foco_obs), agenda);
-			
+			g_signal_connect (GTK_WIDGET(agenda->EPesquisa), "activate" ,G_CALLBACK (foco_pesq), agenda);
 			
 			//Iniciando o Loop do GTK+
 			gtk_main ();
