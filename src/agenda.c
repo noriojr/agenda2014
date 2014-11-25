@@ -8,6 +8,44 @@
 
 #include <agenda.h>
 
+void ordenar (AGENDA *agenda) 
+	{
+
+	AGENDA_DADOS aux;
+	int i,j,qtde;
+	char str1[100], str2[100];/**cria variavel auxiliar*/
+	int tam=0,tamaux=0;
+	qtde=14;/**quantidade de registros*/
+	i=14;j=14;
+	for(i=0; i<qtde; i++)/**percorre o campo nome dos regisros*/
+		{
+		for(j=0; j<qtde; j++)/**percorre o campo nome dos regisros*/
+			{
+			tamaux=0;tam=0;
+			strcpy(str1,agenda->dados[i].nome);/**copia o campo nome para variavel auxiliar*/
+			strcpy(str2,agenda->dados[j].nome);/**copia o campo nome para variavel auxiliar*/
+
+			if (strlen(agenda->dados[i].nome)>=strlen(agenda->dados[j].nome))/**descobre qual a menor*/
+					tam=strlen(agenda->dados[j].nome);/**se a menor for a primeira guarda seu tamanho*/
+					           else
+					           tam=strlen(agenda->dados[j].nome);/**senao  guarda seu tamanho*/
+			while(tamaux<tam)
+				{
+					
+					str1[tamaux]=toupper(str1[tamaux]);
+					str2[tamaux]=toupper(str2[tamaux]);
+					tamaux=tamaux+1;
+				}
+			if(strncmp(agenda->dados[i].nome,agenda->dados[j].nome,4) < 0) 
+				{
+				aux = agenda->dados[i];
+				agenda->dados[i] = agenda->dados[j];
+				agenda->dados[j] = aux;
+				}
+			}
+		}
+	}
+
 void abrir (GtkWidget *Objeto, gpointer Dados)
 	{
 	AGENDA *agenda;
@@ -113,6 +151,7 @@ void abrir (GtkWidget *Objeto, gpointer Dados)
 	free(aux);
 	agenda->reg_atual=0;
 	estatus(agenda,1);
+	ordenar(agenda);
 	carregar(agenda);
 	}
 
