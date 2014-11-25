@@ -12,13 +12,15 @@ void ordenar (AGENDA *agenda)
 	{
 
 	AGENDA_DADOS aux;
-	int i,j,qtde;
+	int i,j,comp;
 	
-	for(i=0; i<qtde; i++)/**percorre o campo nome dos regisros*/
+	for(i=0; i < agenda->regs; i++)/**percorre o campo nome dos regisros*/
 		{
-		for(j=0; j<qtde; j++)/**percorre o campo nome dos regisros*/
+		for(j=0; j < agenda->regs; j++)//percorre o campo nome dos regisros
 			{
-			if(strcmp(agenda->dados[i].nome_pesquisa,agenda->dados[j].nome_pesquisa) < 0) 
+			comp = strcmp(agenda->dados[i].nome_pesquisa,agenda->dados[j].nome_pesquisa); 
+/*			printf ("%s - %s - %d\n",agenda->dados[i].nome_pesquisa,agenda->dados[j].nome_pesquisa,comp);*/
+			if(comp < 0) 
 				{
 				aux = agenda->dados[i];
 				agenda->dados[i] = agenda->dados[j];
@@ -401,7 +403,7 @@ void carregar(AGENDA *dd)
 	free(aux);
 	//Carregando nome
 	gtk_entry_set_text(dd->ENome,dd->dados[dd->reg_atual].nome);
-	printf ("%s\n",dd->dados[dd->reg_atual].nome_pesquisa);
+/*	printf ("%s\n",dd->dados[dd->reg_atual].nome_pesquisa);*/
 	//Carregando DDD
 	gtk_entry_set_text(dd->EDDD,dd->dados[dd->reg_atual].ddd);
 	//Carregando Telefone
@@ -448,7 +450,7 @@ char *preparar(int modo, char *entrada)
 				saida[i] = toupper(entrada[i]);
 				}
 			j = 3;
-			printf ("%s - %d\n",saida,j);
+/*			printf ("%s - %d\n",saida,j);*/
 			break;
 			}
 		}
