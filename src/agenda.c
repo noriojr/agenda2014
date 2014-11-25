@@ -494,3 +494,13 @@ void pesquisar (GtkWidget *Objeto, gpointer Dados)
 	{
 	printf ("Pesquisando...\n");
 	}
+
+void so_numero (GtkWidget *Objeto, gpointer Dados)
+	{
+	GtkEntry *entrada;
+	char *buffer;
+
+	entrada = Dados;
+	//Alocar buffer, setar valor da Entry no buffer, testar se é digito.
+	printf ("%s ",gtk_entry_get_text (entrada));
+	}
