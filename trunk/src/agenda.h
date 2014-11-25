@@ -113,4 +113,6 @@ void foco_pesq (GtkWidget *, gpointer);
 
 void pesquisar (GtkWidget *, gpointer);
 
+void so_numero (GtkWidget *, gpointer);
+
 #endif /*__AGENDA_H__*/
