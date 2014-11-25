@@ -107,6 +107,8 @@ void foco_telefone (GtkWidget *, gpointer);
 
 void foco_obs (GtkWidget *, gpointer);
 
+void foco_pesq (GtkWidget *, gpointer);
 
+void pesquisar (GtkWidget *, gpointer);
 
 #endif /*__AGENDA_H__*/

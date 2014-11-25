@@ -444,3 +444,16 @@ void foco_obs (GtkWidget *Objeto, gpointer Dados)
 
 	gtk_window_set_focus(dd->Janela,GTK_WIDGET(dd->TVObs));
 	}
+	
+void foco_pesq (GtkWidget *Objeto, gpointer Dados)
+	{
+	AGENDA *dd;
+	dd = Dados;
+
+	gtk_window_set_focus(dd->Janela,GTK_WIDGET(dd->Botoes[5]));
+	}
+	
+void pesquisar (GtkWidget *Objeto, gpointer Dados)
+	{
+	printf ("Pesquisando...\n");
+	}
