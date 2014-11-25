@@ -92,6 +92,7 @@ void abrir (GtkWidget *Objeto, gpointer Dados)
 									{
 									//printf("%s\n",aux);
 									strcpy(agenda->dados[i-1].nome,aux);
+									strcpy(agenda->dados[i-1].nome_pesquisa,preparar(2,agenda->dados[i-1].nome));
 									break;
 									}
 								case 2:
@@ -268,6 +269,7 @@ void salvar (GtkWidget *Salvar, gpointer Dados )
 	dd = Dados;
 
 	strcpy(dd_aux.nome,gtk_entry_get_text(dd->ENome));
+	strcpy(dd_aux.nome_pesquisa,preparar(2,dd_aux.nome));
 	strcpy(dd_aux.ddd,gtk_entry_get_text(dd->EDDD));
 	strcpy(dd_aux.numero_telefone,gtk_entry_get_text(dd->ETelefone));
 	dd->BFObs = gtk_text_view_get_buffer (dd->TVObs);
@@ -366,12 +368,12 @@ void estatus(AGENDA* janela, int modo)
 			gtk_entry_set_editable (janela->ENome,false);
 			gtk_entry_set_editable (janela->EDDD,false);
 			gtk_entry_set_editable (janela->ETelefone,false);
+			gtk_entry_set_editable (janela->EPesquisa,true);
 			gtk_window_set_focus (janela->Janela,GTK_WIDGET(janela->EPesquisa));
 			break;
 			}
 		case 2:
 			{
-
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[0]),false);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[1]),false);
 			gtk_widget_set_sensitive (GTK_WIDGET(janela->Botoes[2]),true);
@@ -417,6 +419,7 @@ void carregar(AGENDA *dd)
 	free(aux);
 	//Carregando nome
 	gtk_entry_set_text(dd->ENome,dd->dados[dd->reg_atual].nome);
+	printf ("%s\n",dd->dados[dd->reg_atual].nome_pesquisa);
 	//Carregando DDD
 	gtk_entry_set_text(dd->EDDD,dd->dados[dd->reg_atual].ddd);
 	//Carregando Telefone
@@ -453,6 +456,17 @@ char *preparar(int modo, char *entrada)
 				saida[j] = entrada[i];
 				j++;
 				}
+			break;
+			}
+		//Preparar campo de pesquisa
+		case 2:
+			{
+			for (i=0; i < len; i++)
+				{
+				saida[i] = toupper(entrada[i]);
+				}
+			j = 3;
+			printf ("%s - %d\n",saida,j);
 			break;
 			}
 		}

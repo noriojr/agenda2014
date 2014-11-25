@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <gtk/gtk.h>
 #include <locale.h>
 #include <icones.h>
@@ -26,7 +27,7 @@ typedef struct DADOS
 	char ddd[4];
 	char numero_telefone[11];//9999-9999
 	char observacao[1024];
-	
+	char nome_pesquisa[3];
 	} AGENDA_DADOS;
 #endif /*__agenda_dados__*/
 
